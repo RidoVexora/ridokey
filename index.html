@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RidoKey</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="topbar-title">RIDO<span>KEY</span></div>
+      <div id="statusBadge" class="status-badge unknown">
+        <span class="dot"></span>
+        <span id="statusText">Loading...</span>
+      </div>
+    </header>
+
+    <main class="content">
+      <div id="errorBox" class="card error-card" style="display:none;">
+        <h3>Error Terdeteksi:</h3>
+        <pre id="errorText"></pre>
+        <a href="/api/debug" target="_blank" class="btn primary" style="margin-top:10px; display:inline-block;">Buka /api/debug</a>
+      </div>
+
+      <div class="card">
+        <h3>Server Info</h3>
+        <p><strong>Nama:</strong> <span id="statServerName">—</span></p>
+        <p><strong>Status:</strong> <span id="statState">—</span></p>
+        <p><strong>RAM:</strong> <span id="statRam">—</span> / <span id="statCpu">—</span> CPU</p>
+      </div>
+
+      <div class="card">
+        <h3>Power Control</h3>
+        <div class="power-actions">
+          <button class="btn success" onclick="power('start')">Start</button>
+          <button class="btn danger" onclick="power('stop')">Stop</button>
+          <button class="btn warn" onclick="power('restart')">Restart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Generate API Key (ridokey)</h3>
+        <button id="btnGenerate" class="btn primary">Buat Key Baru</button>
+        <div id="newKeyBox" style="display:none; margin-top: 15px; background: #000; padding: 10px; border-radius: 8px;">
+          <p style="color:#4f8cff; font-size:12px;">Copy key ini (hanya muncul sekali):</p>
+          <code id="newKeyValue" style="word-break: break-all; color: #fff;"></code>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
